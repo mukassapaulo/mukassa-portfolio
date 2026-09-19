@@ -1,33 +1,66 @@
 @import "tailwindcss";
 
+/*
+ * Design tokens — single source of truth for colour, radius and the
+ * extra `xs` breakpoint. Tailwind 4's `@theme` turns every `--color-*`
+ * and `--radius-*` variable below into utility classes automatically
+ * (e.g. `--color-brand` → `bg-brand` / `text-brand` / `border-brand`).
+ * Never hardcode a hex value in a component — use the matching
+ * utility class instead, so a palette change only happens here.
+ */
 @theme {
   --font-display: "Fraunces", "Georgia", serif;
   --font-body: "IBM Plex Sans", "Helvetica Neue", sans-serif;
   --font-mono: "IBM Plex Mono", "SF Mono", monospace;
 
-  --color-canvas: #0b0e14;
-  --color-canvas-raised: #10141d;
-  --color-surface: #141924;
-  --color-surface-2: #191f2d;
-  --color-line: #262e40;
-  --color-line-soft: #1c2330;
+  --breakpoint-xs: 480px;
 
-  --color-ink: #edeff2;
-  --color-ink-dim: #aab2c0;
-  --color-ink-faint: #656f82;
+  --radius-card: 0.75rem;
 
-  --color-gold: #c89b4a;
-  --color-gold-bright: #e3ba6e;
-  --color-gold-dim: #8a6b34;
+  /* Marca */
+  --color-brand: #ff8c42;
+  --color-brand-hover: #e67a35;
+  --color-brand-light: #fff7ed;
+  --color-brand-border: #fdba74;
 
-  --color-risk-low: #4a9b6e;
-  --color-risk-mid: #c89b4a;
-  --color-risk-high: #b8543f;
+  /* Texto */
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-text-disabled: #d1d5db;
+
+  /* Superfícies */
+  --color-surface: #ffffff;
+  --color-surface-sub: #f8fafc;
+  --color-surface-alt: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+
+  /* Estado / semântica */
+  --color-green: #10b981;
+  --color-green-light: #ecfdf5;
+  --color-green-border: #d1fae5;
+
+  --color-yellow: #f59e0b;
+  --color-yellow-light: #fffbeb;
+  --color-yellow-border: #fde68a;
+
+  --color-red: #ef4444;
+  --color-red-hover: #dc2626;
+  --color-red-light: #fef2f2;
+  --color-red-border: #fecaca;
+
+  --color-blue: #3b82f6;
+  --color-blue-light: #eff6ff;
+  --color-blue-border: #bfdbfe;
+
+  --color-indigo: #6366f1;
+  --color-indigo-light: #eff6ff;
 }
 
 @layer base {
   * {
-    border-color: var(--color-line);
+    border-color: var(--color-border);
   }
 
   html {
@@ -35,51 +68,39 @@
   }
 
   body {
-    background-color: var(--color-canvas);
-    color: var(--color-ink);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background-color: var(--color-gold);
-    color: var(--color-canvas);
+    background-color: var(--color-brand);
+    color: var(--color-surface);
   }
 
   ::-webkit-scrollbar {
     width: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--color-canvas);
+    background: var(--color-surface-sub);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-line);
+    background: var(--color-border);
     border-radius: 999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-gold-dim);
+    background: var(--color-brand-border);
   }
 }
 
 @layer components {
   .bg-grid {
     background-image:
-      linear-gradient(to right, var(--color-line-soft) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--color-line-soft) 1px, transparent 1px);
+      linear-gradient(to right, var(--color-border-light) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-border-light) 1px, transparent 1px);
     background-size: 64px 64px;
-  }
-
-  .bg-noise {
-    position: relative;
-  }
-  .bg-noise::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   .num {
@@ -88,7 +109,7 @@
   }
 
   .duotone-portrait {
-    filter: grayscale(1) contrast(1.15) brightness(0.95);
+    filter: grayscale(1) contrast(1.1) brightness(1.02);
   }
 
   .reveal {

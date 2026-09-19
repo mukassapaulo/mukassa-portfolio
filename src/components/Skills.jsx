@@ -48,18 +48,18 @@ const INTERESTS = [
 
 export default function Skills() {
   return (
-    <section id="competencias" className="py-24 md:py-32 border-t border-line-soft">
+    <section id="competencias" className="py-24 md:py-32 border-t border-border-light">
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <SectionHeading num="05" kicker="Competências" title="Áreas de conhecimento" />
 
         <div className="grid sm:grid-cols-3 gap-5 mb-16">
           {CORE.map((group) => (
-            <div key={group.title} className="border border-line p-6 rounded-sm bg-surface/50">
-              <h3 className="text-ink font-medium mb-4">{group.title}</h3>
+            <div key={group.title} className="border border-border p-6 rounded-card bg-surface-sub">
+              <h3 className="text-text-primary font-medium mb-4">{group.title}</h3>
               <ul className="space-y-2.5">
                 {group.items.map((item) => (
-                  <li key={item} className="text-sm text-ink-dim flex items-start gap-2.5">
-                    <span className="w-1 h-1 rounded-full bg-gold mt-2 shrink-0" />
+                  <li key={item} className="text-sm text-text-secondary flex items-start gap-2.5">
+                    <span className="w-1 h-1 rounded-full bg-brand mt-2 shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -70,22 +70,22 @@ export default function Skills() {
 
         <div className="grid md:grid-cols-2 gap-14 md:gap-16 mb-16">
           <div>
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint mb-6">Habilidades técnicas</h3>
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted mb-6">Habilidades técnicas</h3>
             <ul className="space-y-3.5">
               {TECHNICAL.map((t) => (
-                <li key={t} className="text-sm text-ink-dim leading-relaxed pl-4 border-l border-line-soft">
+                <li key={t} className="text-sm text-text-secondary leading-relaxed pl-4 border-l border-border-light">
                   {t}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint mb-6">
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted mb-6">
               Habilidades comportamentais
             </h3>
             <ul className="space-y-3.5">
               {BEHAVIOURAL.map((t) => (
-                <li key={t} className="text-sm text-ink-dim leading-relaxed pl-4 border-l border-line-soft">
+                <li key={t} className="text-sm text-text-secondary leading-relaxed pl-4 border-l border-border-light">
                   {t}
                 </li>
               ))}
@@ -95,16 +95,16 @@ export default function Skills() {
 
         <div className="grid md:grid-cols-2 gap-14 md:gap-16">
           <div>
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint mb-6">Idiomas</h3>
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted mb-6">Idiomas</h3>
             <div className="space-y-5">
               {LANGUAGES.map((l) => (
                 <div key={l.lang}>
                   <div className="flex justify-between text-sm mb-1.5">
-                    <span className="text-ink">{l.lang}</span>
-                    <span className="text-ink-faint font-mono text-xs">{l.level}</span>
+                    <span className="text-text-primary">{l.lang}</span>
+                    <span className="text-text-muted font-mono text-xs">{l.level}</span>
                   </div>
-                  <div className="h-1 bg-line-soft rounded-full overflow-hidden">
-                    <div className="h-full bg-gold rounded-full" style={{ width: `${l.pct}%` }} />
+                  <div className="h-1 bg-border-light rounded-full overflow-hidden">
+                    <div className="h-full bg-brand rounded-full" style={{ width: `${l.pct}%` }} />
                   </div>
                 </div>
               ))}
@@ -112,12 +112,12 @@ export default function Skills() {
           </div>
 
           <div>
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-faint mb-6">Áreas de interesse</h3>
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted mb-6">Áreas de interesse</h3>
             <div className="flex flex-wrap gap-2">
               {INTERESTS.map((i) => (
                 <span
                   key={i}
-                  className="px-3.5 py-1.5 text-sm text-ink-dim border border-line rounded-full hover:border-gold-dim hover:text-gold-bright transition-colors"
+                  className="px-3.5 py-1.5 text-sm text-text-secondary border border-border rounded-full hover:border-brand-border hover:text-brand-hover hover:bg-brand-light transition-colors"
                 >
                   {i}
                 </span>
