@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.env
+.env.local
+
+# Personal source materials (not needed by the built site)
+CV_Mukassa_Daniel_Paulo.docx
+IMG_6335.HEIC
