@@ -1,11 +1,33 @@
 import SectionHeading from './SectionHeading'
-import { IconChart, IconShield, IconGrid } from './Icons'
+import VennDiagram from './VennDiagram'
+import { IconCap, IconGrid, IconTag } from './Icons'
 
-const PILLARS = [
-  { icon: IconChart, label: 'Rigor analítico' },
-  { icon: IconShield, label: 'Responsabilidade' },
-  { icon: IconGrid, label: 'Decisão em dados' },
+const FACTS = [
+  {
+    icon: IconCap,
+    color: 'blue',
+    title: 'Formação',
+    text: 'Licenciado em Informática de Gestão Financeira pelo ISAF — perfil na intersecção entre finanças e tecnologia.',
+  },
+  {
+    icon: IconGrid,
+    color: 'brand',
+    title: 'RISKFLOW',
+    text: 'Plataforma de gestão de risco que desenvolvi e implementei como trabalho de fim de curso, com 18 valores.',
+  },
+  {
+    icon: IconTag,
+    color: 'green',
+    title: 'Objectivo',
+    text: 'Contribuir para organizações do sector financeiro e tecnológico com rigor analítico e decisão apoiada em dados.',
+  },
 ]
+
+const colorClasses = {
+  blue: 'bg-blue-light text-blue',
+  brand: 'bg-brand-light text-brand',
+  green: 'bg-green-light text-green',
+}
 
 export default function About() {
   return (
@@ -19,34 +41,24 @@ export default function About() {
               &ldquo;Rigor analítico, responsabilidade e decisão apoiada em dados.&rdquo;
             </p>
 
-            <div className="mt-8 space-y-3">
-              {PILLARS.map((p) => (
-                <div key={p.label} className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center text-brand shrink-0">
-                    <p.icon width="14" height="14" />
-                  </span>
-                  <span className="text-sm text-text-secondary">{p.label}</span>
-                </div>
-              ))}
+            <div className="mt-10 bg-surface-sub border border-border rounded-card p-6">
+              <VennDiagram />
             </div>
           </div>
 
-          <div className="space-y-5 text-text-secondary leading-relaxed text-[1.05rem]">
-            <p>
-              Licenciado em <span className="text-text-primary">Informática de Gestão Financeira</span> pelo
-              Instituto Superior de Administração e Finanças (ISAF), com perfil na intersecção entre finanças e
-              tecnologia. Combino formação em análise financeira, gestão de risco e controlo interno com
-              competências práticas em Business Intelligence e desenvolvimento de soluções digitais.
-            </p>
-            <p>
-              Desenvolvi e implementei o <span className="text-brand-hover">RISKFLOW</span>, plataforma de
-              gestão e monitorização de risco defendida como trabalho de fim de curso com a classificação de{' '}
-              <span className="text-text-primary">18 valores</span>.
-            </p>
-            <p>
-              Procuro contribuir para organizações do sector financeiro e tecnológico em funções que exijam
-              rigor analítico, responsabilidade e decisão apoiada em dados.
-            </p>
+          <div className="grid sm:grid-cols-2 gap-4 content-start">
+            {FACTS.map((f) => (
+              <div
+                key={f.title}
+                className={`bg-surface border border-border rounded-card p-5 ${f.title === 'Objectivo' ? 'sm:col-span-2' : ''}`}
+              >
+                <span className={`w-9 h-9 rounded-full flex items-center justify-center mb-3 ${colorClasses[f.color]}`}>
+                  <f.icon width="16" height="16" />
+                </span>
+                <h3 className="text-text-primary font-medium mb-1.5">{f.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">{f.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

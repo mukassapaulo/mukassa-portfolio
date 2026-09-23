@@ -5,19 +5,40 @@ const CORE = [
   {
     title: 'Análise & Dados',
     icon: IconChart,
+    color: 'blue',
     items: ['Power BI', 'Excel avançado', 'Estatística e Probabilidade', 'Visualização de dados', 'KPI e reporting'],
   },
   {
     title: 'Risco & Controlo',
     icon: IconShield,
+    color: 'brand',
     items: ['Gestão de risco', 'Controlo interno', 'Auditoria informática', 'Compliance', 'Segurança da informação'],
   },
   {
     title: 'Tecnologia',
     icon: IconCode,
+    color: 'indigo',
     items: ['Desenvolvimento web', 'Bases de dados', 'Programação', 'Automatização de processos', 'Microsoft 365'],
   },
 ]
+
+const coreTopBar = {
+  blue: 'bg-blue',
+  brand: 'bg-brand',
+  indigo: 'bg-indigo',
+}
+
+const coreIconBg = {
+  blue: 'bg-blue-light text-blue',
+  brand: 'bg-brand-light text-brand',
+  indigo: 'bg-indigo-light text-indigo',
+}
+
+const coreDot = {
+  blue: 'bg-blue',
+  brand: 'bg-brand',
+  indigo: 'bg-indigo',
+}
 
 const TECHNICAL = [
   'Power BI — Business Intelligence, modelação e visualização de dados',
@@ -58,19 +79,22 @@ export default function Skills() {
 
         <div className="grid sm:grid-cols-3 gap-5 mb-16">
           {CORE.map((group) => (
-            <div key={group.title} className="border border-border p-6 rounded-card bg-surface-sub">
-              <div className="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center text-brand mb-4">
-                <group.icon />
+            <div key={group.title} className="relative border border-border rounded-card bg-surface-sub overflow-hidden">
+              <div className={`absolute top-0 inset-x-0 h-1 ${coreTopBar[group.color]}`} />
+              <div className="p-6">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-4 ${coreIconBg[group.color]}`}>
+                  <group.icon />
+                </div>
+                <h3 className="text-text-primary font-medium mb-4">{group.title}</h3>
+                <ul className="space-y-2.5">
+                  {group.items.map((item) => (
+                    <li key={item} className="text-sm text-text-secondary flex items-start gap-2.5">
+                      <span className={`w-1 h-1 rounded-full mt-2 shrink-0 ${coreDot[group.color]}`} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-text-primary font-medium mb-4">{group.title}</h3>
-              <ul className="space-y-2.5">
-                {group.items.map((item) => (
-                  <li key={item} className="text-sm text-text-secondary flex items-start gap-2.5">
-                    <span className="w-1 h-1 rounded-full bg-brand mt-2 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>

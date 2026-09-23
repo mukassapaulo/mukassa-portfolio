@@ -1,10 +1,13 @@
 import profile from '../assets/profile.jpg'
-import { IconMail, IconPhone, IconLinkedIn, IconPin, IconArrowDown } from './Icons'
+import GaugeRing from './GaugeRing'
+import { IconMail, IconPhone, IconLinkedIn, IconPin, IconArrowDown, IconGrid, IconTag } from './Icons'
 
 export default function Hero() {
   return (
     <section id="topo" className="relative pt-28 md:pt-36 pb-20 md:pb-28 overflow-hidden bg-grid">
       <div className="pointer-events-none absolute -top-40 right-[-10%] w-[560px] h-[560px] rounded-full bg-brand-light blur-[120px]" />
+      <div className="pointer-events-none absolute top-[20%] left-[-8%] w-[380px] h-[380px] rounded-full bg-blue-light blur-[110px] opacity-70" />
+      <div className="pointer-events-none absolute bottom-[-10%] right-[15%] w-[300px] h-[300px] rounded-full bg-green-light blur-[100px] opacity-60" />
 
       <div className="relative mx-auto max-w-6xl px-6 md:px-10 grid md:grid-cols-[1.15fr_0.85fr] gap-14 md:gap-10 items-center">
         <div className="reveal">
@@ -40,24 +43,45 @@ export default function Hero() {
             </a>
           </div>
 
-          <dl className="mt-11 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-xl border-t border-border-light pt-6">
-            <div>
-              <dt className="text-[11px] font-mono uppercase tracking-wider text-text-muted">TFC</dt>
-              <dd className="num text-2xl text-brand mt-1">18<span className="text-text-muted text-sm">/20</span></dd>
+          <div className="mt-11 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl">
+            <div className="flex items-center gap-2.5 bg-surface border border-border rounded-card p-3">
+              <GaugeRing value={18} max={20} size={44} stroke={4} label="18" sublabel="/20" />
+              <div className="text-[10px] font-mono uppercase tracking-wider text-text-muted leading-tight">
+                Nota
+                <br />
+                final
+              </div>
             </div>
-            <div>
-              <dt className="text-[11px] font-mono uppercase tracking-wider text-text-muted">Idiomas</dt>
-              <dd className="text-sm text-text-primary mt-1.5">PT &middot; EN</dd>
+            <div className="bg-surface border border-border rounded-card p-3 flex flex-col justify-center">
+              <div className="text-[10px] font-mono uppercase tracking-wider text-text-muted mb-1.5">Idiomas</div>
+              <div className="text-sm text-text-primary">PT &middot; EN</div>
+              <div className="mt-1.5 flex gap-1">
+                <span className="h-1 flex-1 rounded-full bg-brand" />
+                <span className="h-1 flex-1 rounded-full bg-brand/50" />
+              </div>
             </div>
-            <div>
-              <dt className="text-[11px] font-mono uppercase tracking-wider text-text-muted">Foco</dt>
-              <dd className="text-sm text-text-primary mt-1.5">Risco &amp; BI</dd>
+            <div className="bg-surface border border-border rounded-card p-3 flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-full bg-blue-light flex items-center justify-center text-blue shrink-0">
+                <IconTag width="13" height="13" />
+              </span>
+              <div>
+                <div className="text-[10px] font-mono uppercase tracking-wider text-text-muted">Foco</div>
+                <div className="text-sm text-text-primary mt-0.5">Risco &amp; BI</div>
+              </div>
             </div>
-            <div>
-              <dt className="text-[11px] font-mono uppercase tracking-wider text-text-muted">Projecto</dt>
-              <dd className="text-sm text-text-primary mt-1.5">RISKFLOW</dd>
-            </div>
-          </dl>
+            <a
+              href="#riskflow"
+              className="bg-surface border border-border rounded-card p-3 flex items-center gap-2.5 hover:border-brand-border transition-colors"
+            >
+              <span className="w-7 h-7 rounded-full bg-green-light flex items-center justify-center text-green shrink-0">
+                <IconGrid width="13" height="13" />
+              </span>
+              <div>
+                <div className="text-[10px] font-mono uppercase tracking-wider text-text-muted">Projecto</div>
+                <div className="text-sm text-text-primary mt-0.5">RISKFLOW</div>
+              </div>
+            </a>
+          </div>
         </div>
 
         <div className="reveal [animation-delay:150ms] flex md:justify-end">
