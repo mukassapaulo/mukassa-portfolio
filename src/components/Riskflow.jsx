@@ -1,5 +1,6 @@
 import SectionHeading from './SectionHeading'
 import RiskMatrix from './RiskMatrix'
+import RiskflowFlow from './RiskflowFlow'
 import { IconArrowUpRight } from './Icons'
 
 const STACK = [
@@ -25,22 +26,26 @@ export default function Riskflow() {
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <SectionHeading num="03" kicker="Projecto em destaque" title="RISKFLOW" />
 
-        <div className="grid md:grid-cols-[1fr_320px] gap-14 items-start">
+        <p className="text-xs font-mono uppercase tracking-wider text-text-muted mb-2">
+          Trabalho de fim de curso &middot; 2026 &middot; 18 valores
+        </p>
+        <h3 className="font-display text-2xl md:text-3xl text-text-primary leading-snug max-w-2xl">
+          Plataforma de gestão e monitorização de risco corporativo
+        </h3>
+
+        <p className="mt-6 text-text-secondary leading-relaxed text-[1.05rem] max-w-2xl">
+          Aplicação web que centraliza o registo, a classificação e o acompanhamento de riscos organizacionais,
+          substituindo o controlo disperso em folhas de cálculo por um repositório único com histórico e
+          indicadores. Concebida, desenvolvida e implementada integralmente por mim.
+        </p>
+
+        <div className="mt-10">
+          <RiskflowFlow />
+        </div>
+
+        <div className="mt-10 grid md:grid-cols-[1fr_320px] gap-14 items-start">
           <div>
-            <p className="text-xs font-mono uppercase tracking-wider text-text-muted mb-2">
-              Trabalho de fim de curso &middot; 2026 &middot; 18 valores
-            </p>
-            <h3 className="font-display text-2xl md:text-3xl text-text-primary leading-snug">
-              Plataforma de gestão e monitorização de risco corporativo
-            </h3>
-
-            <p className="mt-6 text-text-secondary leading-relaxed text-[1.05rem] max-w-2xl">
-              Aplicação web que centraliza o registo, a classificação e o acompanhamento de riscos
-              organizacionais, substituindo o controlo disperso em folhas de cálculo por um repositório único
-              com histórico e indicadores. Concebida, desenvolvida e implementada integralmente por mim.
-            </p>
-
-            <ul className="mt-8 space-y-4 max-w-2xl">
+            <ul className="space-y-4 max-w-2xl">
               {BULLETS.map((b, i) => (
                 <li key={i} className="flex gap-4 text-text-secondary leading-relaxed">
                   <span className="num text-xs text-brand-border mt-1.5 shrink-0">{String(i + 1).padStart(2, '0')}</span>

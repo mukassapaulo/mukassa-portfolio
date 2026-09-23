@@ -1,16 +1,20 @@
 import SectionHeading from './SectionHeading'
+import { IconChart, IconShield, IconCode } from './Icons'
 
 const CORE = [
   {
     title: 'Análise & Dados',
+    icon: IconChart,
     items: ['Power BI', 'Excel avançado', 'Estatística e Probabilidade', 'Visualização de dados', 'KPI e reporting'],
   },
   {
     title: 'Risco & Controlo',
+    icon: IconShield,
     items: ['Gestão de risco', 'Controlo interno', 'Auditoria informática', 'Compliance', 'Segurança da informação'],
   },
   {
     title: 'Tecnologia',
+    icon: IconCode,
     items: ['Desenvolvimento web', 'Bases de dados', 'Programação', 'Automatização de processos', 'Microsoft 365'],
   },
 ]
@@ -55,6 +59,9 @@ export default function Skills() {
         <div className="grid sm:grid-cols-3 gap-5 mb-16">
           {CORE.map((group) => (
             <div key={group.title} className="border border-border p-6 rounded-card bg-surface-sub">
+              <div className="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center text-brand mb-4">
+                <group.icon />
+              </div>
               <h3 className="text-text-primary font-medium mb-4">{group.title}</h3>
               <ul className="space-y-2.5">
                 {group.items.map((item) => (

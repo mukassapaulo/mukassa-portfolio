@@ -1,4 +1,5 @@
 import SectionHeading from './SectionHeading'
+import { IconCap } from './Icons'
 
 const ACADEMIC = [
   {
@@ -33,12 +34,13 @@ export default function Education() {
         <div className="grid md:grid-cols-2 gap-14 md:gap-16">
           <div>
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-text-muted mb-6">Formação académica</h3>
-            <div className="space-y-8">
+            <div className="relative space-y-8 pl-5 border-l border-border">
               {ACADEMIC.map((item) => (
-                <div key={item.degree} className="border-l border-border pl-5">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <h4 className="text-text-primary font-medium">{item.degree}</h4>
-                  </div>
+                <div key={item.degree} className="relative pl-6">
+                  <span className="absolute left-[-1.72rem] top-1.5 w-7 h-7 rounded-full bg-brand-light border border-brand-border flex items-center justify-center text-brand">
+                    <IconCap width="13" height="13" />
+                  </span>
+                  <h4 className="text-text-primary font-medium">{item.degree}</h4>
                   {item.years && <p className="num text-xs text-brand-hover mt-1">{item.years}</p>}
                   <p className="text-sm text-text-muted italic mt-1.5">{item.place}</p>
                   {item.note && <p className="text-sm text-text-secondary mt-2.5 leading-relaxed">{item.note}</p>}

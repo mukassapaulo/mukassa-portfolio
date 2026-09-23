@@ -56,3 +56,84 @@ export function IconArrowDown(props) {
     </svg>
   )
 }
+
+export function IconChart(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
+      <path d="M4 20V10M11 20V4M18 20v-7" />
+      <path d="M3 20h18" />
+    </svg>
+  )
+}
+
+export function IconShield(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
+      <path d="M12 3.5 5 6v5.5c0 4.6 3 7.8 7 9 4-1.2 7-4.4 7-9V6z" />
+      <path d="m9 12 2 2 4-4.2" />
+    </svg>
+  )
+}
+
+export function IconCode(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
+      <path d="m9 7-5 5 5 5M15 7l5 5-5 5" />
+    </svg>
+  )
+}
+
+export function IconCap(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" {...base} {...props}>
+      <path d="M12 4 2 9l10 5 10-5-10-5z" />
+      <path d="M6 11.5V17c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5.5" />
+    </svg>
+  )
+}
+
+export function IconDocument(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
+      <path d="M7 3h7l4 4v14H7z" />
+      <path d="M14 3v4h4M9.5 12.5h5M9.5 16h5" />
+    </svg>
+  )
+}
+
+export function IconTag(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
+      <path d="M12.5 3.5H6a2.5 2.5 0 0 0-2.5 2.5v6.5L13 22l9-9-9.5-9.5z" />
+      <circle cx="8.2" cy="8.2" r="1.3" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+export function IconGrid(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
+      <rect x="3.5" y="3.5" width="7" height="7" rx="1" />
+      <rect x="13.5" y="3.5" width="7" height="7" rx="1" />
+      <rect x="3.5" y="13.5" width="7" height="7" rx="1" />
+      <rect x="13.5" y="13.5" width="7" height="7" rx="1" />
+    </svg>
+  )
+}
+
+export function IconBell(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
+      <path d="M6 10a6 6 0 0 1 12 0c0 4 1.5 5.5 1.5 5.5h-15S6 14 6 10Z" />
+      <path d="M9.5 18.5a2.5 2.5 0 0 0 5 0" />
+    </svg>
+  )
+}
+
+export function IconArrowRight(props) {
+  return (
+    <svg viewBox="0 0 24 24" width="16" height="16" {...base} {...props}>
+      <path d="M4 12h16M13 5l7 7-7 7" />
+    </svg>
+  )
+}
