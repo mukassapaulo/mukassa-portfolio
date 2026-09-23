@@ -35,16 +35,10 @@ export default function About() {
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <SectionHeading num="01" kicker="Perfil" title="Resumo profissional" />
 
-        <div className="grid md:grid-cols-[0.4fr_0.6fr] gap-10 md:gap-16">
-          <div>
-            <p className="font-display text-2xl md:text-3xl text-text-secondary leading-snug italic">
-              &ldquo;Rigor analítico, responsabilidade e decisão apoiada em dados.&rdquo;
-            </p>
-
-            <div className="mt-10 bg-surface-sub border border-border rounded-card p-6">
-              <VennDiagram />
-            </div>
-          </div>
+        <div className="grid md:grid-cols-[0.4fr_0.6fr] gap-10 md:gap-16 items-start">
+          <p className="font-display text-2xl md:text-3xl text-text-secondary leading-snug italic">
+            &ldquo;Rigor analítico, responsabilidade e decisão apoiada em dados.&rdquo;
+          </p>
 
           <div className="grid sm:grid-cols-2 gap-4 content-start">
             {FACTS.map((f) => (
@@ -60,6 +54,10 @@ export default function About() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-14">
+          <VennDiagram />
         </div>
       </div>
     </section>
